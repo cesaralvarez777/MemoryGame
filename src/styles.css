@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+h2{
+    text-align: center;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.titulo{
+    background-color: #FFC100;
+    color:#573B20;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 0 0 30px 30px;
+}
+body{
+    background-color: #F3E8CC;
+}
+
+

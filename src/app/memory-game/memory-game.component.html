@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+      <div class="col info-column">
+        <form class="a" [formGroup]="gameConfigForm" (ngSubmit)="startGame()">
+          <label for="pairs">Número de pares de cartas</label>
+          <select class="b" id="pairs" formControlName="pairs">
+            <option  *ngFor="let pair of getPairsOptions()" [value]="pair">{{ pair }}</option>
+          </select>
+          <button class="c" type="submit" [disabled]="gameConfigForm.invalid">Iniciar Juego</button>
+        </form>
+  
+        <div  *ngIf="gameStarted" class="game-info">
+          <p>Tiempo transcurrido: {{ timeElapsed }} segundos</p>
+          <p>Intentos: {{ attempts }}</p>
+          <p>Puntaje: {{ score }}</p>
+          <button class="restart" (click)="restartGame()">Reiniciar Juego</button>
+        </div>
+      </div>
+  
+      <div class="col game-column">
+        <div *ngIf="cards && cards.length > 0">
+          <div class="board">
+            <div *ngFor="let card of cards" class="card" [ngClass]="{'flipped': card.flipped || card.matched}" (click)="flipCard(card)">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="https://i.pinimg.com/564x/eb/2c/2e/eb2c2e984ca05c5bc857e0731c4f8446.jpg" width="100%" alt="Card Back" />
+                </div>
+                <div class="card-back">
+                  <img *ngIf="card.flipped || card.matched" [src]="card.image" alt="Card Image" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
